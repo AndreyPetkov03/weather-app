@@ -337,7 +337,7 @@ function App() {
                   ? 'bg-gray-800/50 backdrop-blur-sm border border-gray-700' 
                   : 'bg-white/70 backdrop-blur-sm border border-gray-200'
               }`}>
-                <h3 className={`text-xl font-medium mb-6 ${
+                <h3 className={`text-xl font-medium mb-4 ${
                   isNight ? 'text-white' : 'text-gray-800'
                 }`}>
                   7-Day Forecast
