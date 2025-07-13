@@ -190,23 +190,28 @@ function App() {
 
   // Get today's hourly forecast (next 24 hours)
   const getTodayHourlyForecast = () => {
-    if (!weather?.forecast?.forecastday?.[0]?.hour) return [];
+    if (!weather?.forecast?.forecastday?.[0]?.hour || !weather?.forecast?.forecastday?.[1]?.hour) return [];
     const now = new Date();
     const currentHour = now.getHours();
     
-    return weather.forecast.forecastday[0].hour
-      .slice(currentHour, currentHour + 6) // Next 6 hours
-      .map(hour => ({
-        ...hour,
-        time: new Date(hour.time).toLocaleTimeString('en-US', { 
-          hour: 'numeric', 
-          hour12: true 
-        })
-      }));
+    // Get remaining hours from today
+    const todayHours = weather.forecast.forecastday[0].hour.slice(currentHour);
+    
+    // If we need more hours to show at least 8-10 hours, get from tomorrow
+    const tomorrowHours = weather.forecast.forecastday[1].hour;
+    const totalHours = [...todayHours, ...tomorrowHours].slice(0, 10); // Show next 10 hours
+    
+    return totalHours.map(hour => ({
+      ...hour,
+      time: new Date(hour.time).toLocaleTimeString('en-US', { 
+        hour: 'numeric', 
+        hour12: true 
+      })
+    }));
   };
 
   return (
-    <div className={`min-h-screen w-full p-4 sm:p-6 lg:p-8 font-['Bebas_Neue'] ${
+    <div className={`min-h-screen w-full flex items-center justify-center p-4 sm:p-6 lg:p-8 font-['Bebas_Neue'] ${
       isNight 
         ? 'bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900' 
         : 'bg-gradient-to-br from-blue-50 via-white to-blue-100'
@@ -241,7 +246,7 @@ function App() {
       )}
 
       {weather && !loading && (
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column - Main Weather Info */}
           <div className="lg:col-span-2 space-y-6">
             {/* Current Weather Card */}
@@ -445,7 +450,7 @@ function App() {
           </div>
 
           {/* Right Column - 7-Day Forecast */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 space-y-6">
             <div className={`rounded-2xl p-6 ${
               isNight 
                 ? 'bg-gray-800/50 backdrop-blur-sm border border-gray-700' 
@@ -494,6 +499,73 @@ function App() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Additional Weather Info Boxes */}
+            <div className="grid grid-cols-2 gap-4">
+              {/* Pressure */}
+              <div className={`rounded-xl p-4 ${
+                isNight 
+                  ? 'bg-gray-800/50 backdrop-blur-sm border border-gray-700' 
+                  : 'bg-white/70 backdrop-blur-sm border border-gray-200'
+              }`}>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-8 h-8">
+                    <DotLottieReact
+                      src="/lottie/barometer.json"
+                      loop
+                      autoplay
+                    />
+                  </div>
+                  <span className={`text-sm ${
+                    isNight ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
+                    Pressure
+                  </span>
+                </div>
+                <p className={`text-xl font-medium ${
+                  isNight ? 'text-white' : 'text-gray-800'
+                }`}>
+                  {Math.round(weather.current.pressure_mb)} mb
+                </p>
+                <p className={`text-xs ${
+                  isNight ? 'text-gray-400' : 'text-gray-500'
+                }`}>
+                  {weather.current.pressure_mb > 1013 ? 'High' : weather.current.pressure_mb > 1000 ? 'Normal' : 'Low'}
+                </p>
+              </div>
+
+              {/* Visibility */}
+              <div className={`rounded-xl p-4 ${
+                isNight 
+                  ? 'bg-gray-800/50 backdrop-blur-sm border border-gray-700' 
+                  : 'bg-white/70 backdrop-blur-sm border border-gray-200'
+              }`}>
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-8 h-8">
+                    <DotLottieReact
+                      src="/lottie/horizon.json"
+                      loop
+                      autoplay
+                    />
+                  </div>
+                  <span className={`text-sm ${
+                    isNight ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
+                    Visibility
+                  </span>
+                </div>
+                <p className={`text-xl font-medium ${
+                  isNight ? 'text-white' : 'text-gray-800'
+                }`}>
+                  {Math.round(weather.current.vis_km)} km
+                </p>
+                <p className={`text-xs ${
+                  isNight ? 'text-gray-400' : 'text-gray-500'
+                }`}>
+                  {weather.current.vis_km >= 10 ? 'Excellent' : weather.current.vis_km >= 5 ? 'Good' : 'Poor'}
+                </p>
               </div>
             </div>
           </div>
