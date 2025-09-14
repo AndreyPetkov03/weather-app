@@ -5,13 +5,13 @@ A beautiful, fully responsive weather application built with React 19, TypeScrip
 ## 📱 Screenshots & Demo
 
 ### Desktop View
-![Desktop Weather App](./Weather%20app%20img%201.png)
+![Desktop Weather App](./public/Weather%20app%20img%201.png)
 
 ### Mobile View
-![Mobile Weather App](./weather%20app%201(2).png)
+![Mobile Weather App](./public/weather%20app%201(2).png)
 
 ### Animated Weather Icons Demo
-![Animated Weather Icons](./weather%20app%20animated.gif)
+![Animated Weather Icons](./public/weather%20app%20animated.gif)
 
 > 🎬 **Live Animation Demo**: Watch the beautiful Lottie weather icons come to life with smooth, context-aware animations that change based on weather conditions and time of day.
 
