@@ -2,7 +2,7 @@
 
 A beautiful, fully responsive weather application built with React 19, TypeScript, and Tailwind CSS. Features real-time weather data, stunning Lottie animations, and automatic day/night themes.
 
-## 📱 Screenshots
+## 📱 Screenshots & Demo
 
 ### Desktop View
 ![Desktop Weather App](./Weather%20app%20img%201.png)
@@ -10,10 +10,16 @@ A beautiful, fully responsive weather application built with React 19, TypeScrip
 ### Mobile View
 ![Mobile Weather App](./weather%20app%201(2).png)
 
+### Animated Weather Icons Demo
+https://github.com/user-attachments/assets/weather-app-animated.mp4
+
+> 🎬 **Live Animation Demo**: Watch the beautiful Lottie weather icons come to life with smooth, context-aware animations that change based on weather conditions and time of day.
+
 ## ✨ Features
 
 - �️ **Real-time Weather Data** - Current conditions, hourly, and 7-day forecasts
-- 🎨 **Dynamic Lottie Animations** - Beautiful weather condition animations
+- 🎨 **Dynamic Lottie Animations** - Beautiful, smooth weather condition animations (see demo above)
+- 🎬 **Context-Aware Icons** - Animations adapt to weather conditions and day/night cycles
 - 🌙 **Automatic Day/Night Mode** - Theme changes based on time (6 AM - 6 PM)
 - � **Location-based Detection** - Automatic weather for your current location
 - �📱 **Fully Responsive Design** - Works perfectly on all devices
@@ -110,10 +116,14 @@ The app uses [WeatherAPI](https://weatherapi.com/) for comprehensive weather dat
 - **Desktop**: Full 3-column layout with 6-column metrics
 
 ### Weather Animations
-Smart Lottie animations that change based on:
-- Weather conditions (sunny, cloudy, rainy, snowy, etc.)
-- Time of day (day/night variants)
-- Detailed condition codes for accuracy
+Smart Lottie animations that create an immersive experience:
+- **60+ Different Weather Icons** - Covering all weather conditions
+- **Dynamic Day/Night Variants** - Icons change based on time (6 AM - 6 PM)
+- **Smooth Transitions** - Seamless animation loops for visual appeal
+- **Condition-Specific Details** - Accurate animations for rain, snow, clouds, sun, etc.
+- **Hourly Forecast Animations** - Each hour shows appropriate weather animation
+
+> 💡 **Pro Tip**: The animations automatically adapt - sunny icons during day hours, moon and stars during night hours, with weather-specific overlays for rain, clouds, and other conditions.
 
 ## 📊 Weather Metrics
 
