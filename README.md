@@ -1,22 +1,58 @@
-# Weather App
+# 🌤️ Modern Weather App
 
-A beautiful, responsive weather application built with React, TypeScript, Vite, and Tailwind CSS. Features automatic dark/light mode based on time of day and smooth weather animations.
+A beautiful, fully responsive weather application built with React 19, TypeScript, and Tailwind CSS. Features real-time weather data, stunning Lottie animations, and automatic day/night themes.
 
-## Features
+## 📱 Screenshots
 
-- 🌤️ Real-time weather data from WeatherAPI
-- 🎨 Beautiful Lottie animations for different weather conditions
-- 🌙 Automatic dark mode during night hours (6 PM - 6 AM)
-- 📱 Fully responsive design
-- 📍 Location-based weather detection
-- 🎭 Bebas Neue font for modern typography
+### Desktop View
+![Desktop Weather App](./Weather%20app%20img%201.png)
 
-## Setup
+### Mobile View
+![Mobile Weather App](./weather%20app%201(2).png)
+
+## ✨ Features
+
+- �️ **Real-time Weather Data** - Current conditions, hourly, and 7-day forecasts
+- 🎨 **Dynamic Lottie Animations** - Beautiful weather condition animations
+- 🌙 **Automatic Day/Night Mode** - Theme changes based on time (6 AM - 6 PM)
+- � **Location-based Detection** - Automatic weather for your current location
+- �📱 **Fully Responsive Design** - Works perfectly on all devices
+- ⚡ **Fast Performance** - Built with Vite for lightning-fast loading
+- 🎭 **Modern Typography** - Bebas Neue font for clean, modern look
+- 🔍 **Comprehensive Data** - Wind, UV Index, Humidity, Pressure, Visibility, Feels Like
+
+## 🏗️ Project Structure
+
+The app features a clean, organized layout:
+
+- **Top Section**: Current weather with location and temperature
+- **Left Column**: Today's hourly forecast (next 10 hours)
+- **Right Column**: 7-day weather forecast
+- **Bottom Section**: Comprehensive weather metrics in a responsive grid
+
+## 🛠️ Technologies Used
+
+- **React 19** - Latest React with modern features
+- **TypeScript** - Type-safe development
+- **Vite** - Next-generation frontend tooling
+- **Tailwind CSS v4** - Utility-first CSS framework
+- **Lottie Animations** - High-quality weather animations
+- **WeatherAPI** - Reliable weather data source
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- WeatherAPI key (free from [weatherapi.com](https://weatherapi.com/))
+
+### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/AndreyPetkov03/weather-app2.git
-   cd weather-app2
+   git clone https://github.com/AndreyPetkov03/weather-app.git
+   cd weather-app
    ```
 
 2. **Install dependencies**
@@ -25,96 +61,119 @@ A beautiful, responsive weather application built with React, TypeScript, Vite, 
    ```
 
 3. **Set up environment variables**
-   - Copy `.env.example` to `.env`
-   - Get a free API key from [WeatherAPI](https://weatherapi.com/api)
-   - Replace `your_weather_api_key_here` with your actual API key in `.env`
+   
+   Create a `.env` file in the root directory:
+   ```env
+   VITE_WEATHER_API_KEY=your_weather_api_key_here
+   ```
+   
+   Or copy from the example:
+   ```bash
+   cp .env.example .env
+   ```
 
 4. **Start the development server**
    ```bash
    npm run dev
    ```
 
-## Environment Variables
+5. **Open your browser**
+   Navigate to `http://localhost:5173`
 
-Create a `.env` file in the root directory with:
+## 🔧 Available Scripts
 
-```
-VITE_WEATHER_API_KEY=your_weather_api_key_here
-```
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## Technologies Used
+## 🌍 API Integration
 
-- React 19
-- TypeScript
-- Vite
-- Tailwind CSS v4
-- Lottie Animations
-- WeatherAPI
+The app uses [WeatherAPI](https://weatherapi.com/) for comprehensive weather data:
 
-## Original Vite Template Info
+- Current weather conditions
+- Hourly forecasts (next 10 hours)
+- 7-day daily forecasts
+- Location-based automatic detection
+- Detailed metrics (wind, UV, pressure, etc.)
 
-Currently, two official plugins are available:
+## 🎨 Design Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Dynamic Theming
+- **Day Mode**: Light blue gradient background (6 AM - 6 PM)
+- **Night Mode**: Dark gradient background (6 PM - 6 AM)
+- **Glassmorphism**: Cards with backdrop blur and transparency
 
-## Expanding the ESLint configuration
+### Responsive Layout
+- **Mobile**: Stacked layout with 2-column metric grid
+- **Tablet**: Optimized spacing with 3-column metrics
+- **Desktop**: Full 3-column layout with 6-column metrics
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Weather Animations
+Smart Lottie animations that change based on:
+- Weather conditions (sunny, cloudy, rainy, snowy, etc.)
+- Time of day (day/night variants)
+- Detailed condition codes for accuracy
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📊 Weather Metrics
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+The app displays comprehensive weather information:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Metric | Description |
+|--------|-------------|
+| **Temperature** | Current temperature with feels-like |
+| **Wind** | Speed (km/h) and direction |
+| **UV Index** | With risk level indicators |
+| **Humidity** | Percentage with comfort levels |
+| **Pressure** | Atmospheric pressure in mb |
+| **Visibility** | Distance with quality rating |
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🌐 Browser Support
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📱 Mobile Features
+
+- Touch-friendly interface
+- Swipeable hourly forecast
+- Optimized tap targets
+- Responsive images and icons
+
+## 🔒 Privacy & Location
+
+- Uses browser's Geolocation API
+- No location data is stored
+- Graceful fallback for location permissions
+- Privacy-first approach
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- [WeatherAPI](https://weatherapi.com/) for reliable weather data
+- [LottieFiles](https://lottiefiles.com/) for beautiful animations
+- [Tailwind CSS](https://tailwindcss.com/) for utility-first styling
+- [React](https://react.dev/) for the amazing framework
+
+## 📞 Support
+
+If you have any questions or run into issues, please open an issue on GitHub.
+
+---
+
+Built with ❤️ using modern web technologies
